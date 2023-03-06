@@ -1,6 +1,6 @@
-# oh-my-posh init pwsh --config C:\Users\rajoyish\AppData\Local\Programs\oh-my-posh\themes\powerlevel10k_rainbow.omp.json | Invoke-Expression
-oh-my-posh init pwsh --config C:\Users\rajoyish\AppData\Local\Programs\oh-my-posh\themes\unicorn.omp.json | Invoke-Expression
-# oh-my-posh init pwsh --config C:\Users\rajoyish\AppData\Local\Programs\oh-my-posh\themes\atomic.omp.json | Invoke-Expression
+$ENV:STARSHIP_CONFIG = "$HOME\Documents\PowerShell\starship.toml"
+$ENV:STARSHIP_DISTRO = "者 rajoyish"
+Invoke-Expression (&starship init powershell)
 
 #✅ Laravel Artisan Commands Shortcut
 Set-Alias art php-artisan
@@ -20,6 +20,9 @@ function npm-run-build { npm run build }
 
 Set-Alias pint laravel-pint
 function laravel-pint { ./vendor/bin/pint $args }
+
+Set-Alias serve php-serve
+function php-serve { php -S localhost:8888 $args }
 
 
 #✅ Git Commands Shortcut
@@ -50,3 +53,7 @@ function git-checkout-b { git checkout -b $args }
 #✅ Neo Vim
 Set-Alias vim neo-vim
 function neo-vim { nvim }
+
+# Open File in an explorer
+Set-Alias open open-files-in-explorer
+function open-files-in-explorer { explorer.exe $args }
